@@ -5,6 +5,9 @@ import { Job } from "../models/jobSchema.js";
 import { v2 as cloudinary } from "cloudinary";
 
 export const postApplication = catchAsyncErrors(async (req, res, next) => {
+  console.log("USER:", req.user);
+  console.log("BODY:", req.body);
+  console.log("FILES:", req.files);
   const { id } = req.params;
   const { name, email, phone, address, coverLetter } = req.body;
   if (!name || !email || !phone || !address || !coverLetter) {
